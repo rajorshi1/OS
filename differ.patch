@@ -1,0 +1,23 @@
+--- linux-6.0.9/kernel/sys.c	2022-11-16 14:34:15.000000000 +0530
++++ linuxwithSyscall/kernel/sys.c	2022-11-22 17:17:49.740615931 +0530
+@@ -207,6 +207,20 @@
+ 	return error;
+ }
+ 
++SYSCALL_DEFINE2(kernel_2D_memcpy, float **, SRC, float **, DEST)
++{
++	float arr[4][4];
++	if (__copy_from_user(arr, SRC, sizeof(arr)))
++	{
++		return -EFAULT;
++	}
++	if (__copy_to_user(DEST, arr, sizeof(arr)))
++	{
++		return -EFAULT;
++	}
++	return 0;
++}
++
+ SYSCALL_DEFINE3(setpriority, int, which, int, who, int, niceval)
+ {
+ 	struct task_struct *g, *p;

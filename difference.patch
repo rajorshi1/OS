@@ -1,0 +1,10 @@
+--- linux-6.0.9/arch/x86/entry/syscalls/syscall_64.tbl	2022-11-16 14:34:15.000000000 +0530
++++ linuxwithSyscall/arch/x86/entry/syscalls/syscall_64.tbl	2022-11-22 17:12:28.770615931 +0530
+@@ -372,6 +372,7 @@
+ 448	common	process_mrelease	sys_process_mrelease
+ 449	common	futex_waitv		sys_futex_waitv
+ 450	common	set_mempolicy_home_node	sys_set_mempolicy_home_node
++451 	common	kernel_2D_memcpy	sys_kernel_2D_memcpy
+ 
+ #
+ # Due to a historical design error, certain syscalls are numbered differently
