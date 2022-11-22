@@ -33,7 +33,7 @@ void * countA() {
 
 void * countB() {
     struct sched_param param;
-    param.sched_priority = 99;
+    param.sched_priority = 1;	//priority changed as per convenience
     int a = pthread_setschedparam(ThrB, SCHED_FIFO, &param);
     if (a) printf("%d\n Error\n", a);
     struct timespec before;
@@ -54,7 +54,7 @@ void * countB() {
 
 void * countC() {
     struct sched_param param;
-    param.sched_priority = 99;
+    param.sched_priority = 1;	//priority changer as per convenience
     int a = pthread_setschedparam(ThrC, SCHED_RR, &param);
     if (a) printf("%d\n Error\n", a);
     struct timespec before;
